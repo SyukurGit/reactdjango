@@ -1,20 +1,18 @@
 # django/core/urls.py
 
 from django.contrib import admin
-from django.urls import path, include  # Tambahkan 'include' di sini
-from django.urls import path
-from .views import ping
+from django.urls import path, include
 
-# Impor dua baris ini
+# 1. Impor dua baris ini
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-       path('api/', include('berita.urls')), # <-- UBAH/TAMBAHKAN BARIS INI
-
+    path('api/', include('berita.urls')),
 ]
 
-# Tambahkan baris ini di bagian bawah
+# 2. Tambahkan blok 'if' ini di bagian paling bawah file
+#    Ini memberitahu Django untuk menyajikan file dari folder MEDIA_ROOT saat mode DEBUG aktif
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
