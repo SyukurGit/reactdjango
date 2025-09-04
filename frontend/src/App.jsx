@@ -11,22 +11,19 @@ import Navbar from './components/Navbar'; // <-- Impor Navbar
 
 function App() {
   return (
-    <Router>
-      <div>
-          <Navbar /> {/* <-- Letakkan di sini */}
-        {/* Kamu bisa menambahkan Navbar di sini agar muncul di semua halaman */}
-        <Routes>
-          {/* Rute untuk Publik */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/berita/:id" element={<BeritaDetail />} />
+    <div>
+      <Navbar />
+      <Routes>
+        {/* Rute untuk Publik */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/berita/:id" element={<BeritaDetail />} />
 
-          {/* Rute untuk Panel Admin */}
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/tambah" element={<TambahBerita />} />
-          <Route path="/admin/edit/:id" element={<EditBerita />} />
-        </Routes>
-      </div>
-    </Router>
+        {/* Rute untuk Panel Admin */}
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/tambah" element={<TambahBerita />} />
+        <Route path="/admin/edit/:id" element={<EditBerita />} />
+      </Routes>
+    </div>
   );
 }
 

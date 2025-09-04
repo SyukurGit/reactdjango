@@ -32,13 +32,15 @@ function HomePage() {
       <div className="berita-grid">
         {beritaList.map((berita) => (
           <div key={berita.id} className="berita-card">
+        
             {berita.gambar && (
-              <img 
-                src={`http://127.0.0.1:8000${berita.gambar}`} 
-                alt={berita.judul} 
+              <img
+                src={berita.gambar} // Cukup gunakan ini
+                alt={berita.judul}
                 className="berita-image"
               />
             )}
+
             <h2>{berita.judul}</h2>
             <p>oleh {berita.penulis}</p>
             <Link to={`/berita/${berita.id}`}>Baca Selengkapnya</Link>

@@ -35,10 +35,10 @@ function BeritaDetail() {
         <p className="meta">
           Oleh: {berita.penulis} | Kategori: {berita.kategori}
         </p>
-        {berita.gambar && (
-          <img 
-            src={`http://127.0.0.1:8000${berita.gambar}`} 
-            alt={berita.judul} 
+         {berita.gambar && (
+          <img
+            src={berita.gambar} // Ubah baris ini
+            alt={berita.judul}
             className="berita-detail-image"
           />
         )}

@@ -24,7 +24,7 @@ function EditBerita() {
         setKategori(berita.kategori);
         setPenulis(berita.penulis);
         if (berita.gambar) {
-          setGambarPreview(`http://127.0.0.1:8000${berita.gambar}`);
+          setGambarPreview(berita.gambar); // Ubah baris ini
         }
       } catch (err) {
         console.error("Gagal mengambil detail berita:", err);
