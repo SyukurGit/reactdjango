@@ -38,12 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
         'rest_framework',
+            'corsheaders',  # Tambahkan ini
+                'berita',  # <-- TAMBAHKAN INI
+
+
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # Tambahkan ini
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -74,13 +79,18 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# django/core/settings.py
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'beritadjango',          # Nama database yang sudah kamu buat
+        'USER': 'root',                   # Ganti dengan username MySQL-mu
+        'PASSWORD': '',                   # Ganti dengan password MySQL-mu
+        'HOST': '127.0.0.1',              # Biasanya ini tidak perlu diubah
+        'PORT': '3306',                   # Port default MySQL
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -124,3 +134,13 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+# django/core/settings.py
+
+# Tambahkan ini di bagian bawah file
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173", # Ganti dengan port Vite/React kamu jika berbeda
+    "http://127.0.0.1:5173",
+]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
